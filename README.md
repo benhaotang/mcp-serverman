@@ -8,8 +8,12 @@ A command-line tool to manage Claude MCP servers configuration.
 ## Installation
 
 ```bash
+# Install the package with pip
+pip install mcp-serverman 
+# or from github
 pip install git+https://github.com/benhaotang/mcp-serverman.git
 ```
+Available on both Windows, Linux and MacOS.
 
 ## Usage
 
