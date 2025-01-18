@@ -1,5 +1,8 @@
 > [!WARNING]
-> This tool is still in development and may not be stable and subject to changes. And I always recommend making a manual backup of the mcp configuration before making any changes, although I tried to cover some error handling in the code, but it is definitely not inclusive.
+> This tool is still in development and may not be stable and subject to changes. 
+
+> [!IMPORTANT]  
+> I always recommend making a manual backup of the mcp configuration before making any changes. Although I tried to cover some error handling in the code, it is definitely not inclusive.
 
 # Installation
 
@@ -148,6 +151,25 @@ What is saved?
 mcp-serverman preset load <preset_name>
 ```
 If a server or a server version in the preset is not found, you will be asked to change to another version or restore it from a preset file.
+
+> [!TIP]
+> - All preset files are stored in the Claude config directory under '.history' folder, in the format of:
+> ```json
+> "xxx": {
+>      "config": {
+>        "command": "xxx",
+>        "args": [
+>          "xxx"
+>        ],
+>        "env": {
+>          "xxx": "xxx"
+>        }
+>      },
+>      "hash": "xxxxxxxx"
+>     }
+> ```
+> - You can manually edit the preset files to change configurations or add new ones.
+> - You can also use preset files to restore on a fresh Claude installation.
 
 ### Delete Preset/Profile
 ```bash
