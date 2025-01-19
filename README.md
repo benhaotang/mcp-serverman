@@ -15,7 +15,7 @@ A command-line tool to manage Claude MCP servers configuration with version cont
 ```bash
 pip install mcp-serverman 
 ```
-or from GitHub
+or from GitHub for the latest debug version:
 ```bash
 pip install git+https://github.com/benhaotang/mcp-serverman.git
 ```
@@ -65,8 +65,14 @@ pip install -e .
 ## :checkered_flag:Roadmap
 
 - [x] Add support for other MCP-Clients, e.g. [Cline](https://github.com/cline/cline) and [MCP-Bridge](https://github.com/SecretiveShell/MCP-Bridge) (since 0.1.9)
-- [ ] Update the code to be more modular and easier to maintain (so that we can move to v0.2.0 as a final step-up in version number)
+- [x] Update the code to be more modular and easier to maintain (since v0.2.0)
 - [ ] Integration with other MCP server install tools, e.g. [Smithery](https://smithery.ai/), or with predefined installation templates (should iron out safety issues first)
+    - [ ] Define a template format for server installation and only allow `git clone`, `npm install`, `pip install` via the template
+    - [ ] Test with official servers
+    - [ ] Add Smithery as one of allowed installation tools
+    - [ ] Somehow to have a check update function? (help wanted)
+- [ ] Better error handling tests
+- [ ] Maybe a Web UI via Flask?
 
 ## License
 

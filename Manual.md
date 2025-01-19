@@ -8,6 +8,10 @@
 
 1. Install the package with pip:
 ```bash
+pip install mcp-serverman 
+```
+or from GitHub (for the latest debug version):
+```bash
 pip install git+https://github.com/benhaotang/mcp-serverman.git
 ```
 2. Check available functions with:
