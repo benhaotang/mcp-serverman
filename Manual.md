@@ -292,8 +292,7 @@ Options:
 mcp-serverman client init
 
 # Add cline as a client
-mcp-serverman client add cline --name "Roo Cline" --path "/home/$(whoami)/.config/Code/User/globalStorage/rooveterinaryinc.roo-cline/settings
-" --key "content_servers"
+mcp-serverman client add cline --name "Roo Cline" --path "/home/$(whoami)/.config/Code/User/globalStorage/rooveterinaryinc.roo-cline/settings/cline_mcp_settings.json" --key "mcpServers"
 ```
 
 2. Copy configurations between clients:
