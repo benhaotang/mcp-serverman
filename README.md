@@ -28,6 +28,8 @@ After installation, you can use the `mcp-serverman` command directly in terminal
 ```bash
 # Display help message
 mcp-serverman
+# Initialize Client configuration(one time and must be done before using other commands, since 0.1.9)
+mcp-serverman client init
 # List servers
 mcp-serverman list
 mcp-serverman list --enabled
@@ -50,7 +52,7 @@ mcp-serverman client modify <short_name> --default
 mcp-serverman client copy --from <short_name> --to <short_name> --merge
 ```
 
-For detailed usage instructions, see the [manual](Manual.md).
+For detailed usage instructions, see the [manual](https://github.com/benhaotang/mcp-serverman/blob/main/Manual.md).
 
 ## :wrench:Development
 
@@ -62,9 +64,10 @@ pip install -e .
 
 ## :checkered_flag:Roadmap
 
-- [ ] Add support for other MCP-Clients, e.g. [Cline](https://github.com/cline/cline) and [MCP-Bridge](https://github.com/SecretiveShell/MCP-Bridge)
+- [x] Add support for other MCP-Clients, e.g. [Cline](https://github.com/cline/cline) and [MCP-Bridge](https://github.com/SecretiveShell/MCP-Bridge)
+- [ ] Update the code to be more modular and easier to maintain
 - [ ] Integration with other MCP server install tools, e.g. [Smithery](https://smithery.ai/)
 
 ## License
 
-MIT License [(LICENSE)](LICENSE)
+MIT License [(LICENSE)](https://github.com/benhaotang/mcp-serverman/blob/main/LICENSE)

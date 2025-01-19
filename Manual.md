@@ -29,6 +29,10 @@ Commands:
   remove   Remove a server version or entire server.
   save     Save current state of a server.
 ```
+3. Initialize client management system (required for the first time since version 0.1.9):
+```bash
+mcp-serverman client init
+```
 
 **I always recommend making a manual backup of the mcp configuration before making any changes, although I tried to cover some error handling in the code, but it is definitely not inclusive.**
 
