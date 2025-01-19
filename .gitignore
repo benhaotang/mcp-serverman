@@ -21,3 +21,4 @@ wheels/
 MANIFEST
 .vscode/
 .notebook/
+.ropeproject/

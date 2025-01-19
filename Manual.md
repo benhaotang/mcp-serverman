@@ -186,6 +186,95 @@ The output shows in a table format:
 - Number of servers included
 - Last modified timestamp
 
+## Client Management Extension (since version 0.1.9)
+
+All previous commands now support a `--client` option to specify which client's configuration to manage. If not specified, the default client will be used.
+
+```bash
+# Example: List servers for a specific client
+mcp-serverman list --client cline
+
+# Example: Save preset for a specific client
+mcp-serverman preset save mypreset --client claude
+```
+
+### Initialize Client Management
+
+This is a global initialize or reset the client management system(**required for the first time since version 0.1.9**):
+```bash
+mcp-serverman client init
+```
+
+The global initialization file is stored in the user config location:
+  - Linux: `~/.config/mcp-serverman/`
+  - Windows: `~/mcp-serverman/`
+  - MacOS: `~/Library/Application Support/mcp-serverman/`
+
+### List Clients
+Display all registered clients and their status:
+```bash
+mcp-serverman client list
+```
+
+The output shows in a table format with following columns:
+- Short Name (used in CLI commands)
+- Name (display name)
+- Config Path
+- Servers Key
+- Status (default/system)
+
+### Add New Client
+Add a new client configuration:
+```bash
+# Interactive mode
+mcp-serverman client add
+# Direct mode
+mcp-serverman client add short_name --name "Display Name" --path "/path/to/config.json" --key "mcpServers" [--default]
+```
+
+Options:
+- `--name`: Display name for the client
+- `--path`: Path to client's config file
+- `--key`: Key name for servers in config file (e.g., "mcpServers" for Claude)
+- `--default`: Set as default client
+
+### Modify Client
+Modify an existing client's configuration:
+```bash
+mcp-serverman client modify short_name [options]
+```
+
+Options:
+- `--name`: Change display name
+- `--path`: Change config file path
+- `--key`: Change servers key name
+- `--default`: Set as default client
+
+Note: The "system" client cannot be modified.
+
+### Remove Client
+Remove a client from management:
+```bash
+mcp-serverman client remove short_name
+```
+
+Note: The "system" client cannot be removed.
+
+### Copy Client Configuration
+Copy or merge server configurations and presets between clients:
+```bash
+mcp-serverman client copy --from source_client --to target_client [options]
+```
+
+Options:
+- `--merge`: Merge configurations instead of copying
+  - When merging, for servers with same version hash, will only keep the one with newer timestamp
+- `--force`: Force overwrite target configuration
+
+> [!TIP]
+> - This will not modify the original target client configurations for safety reasons. 
+> - You can then restore to the target client with a preset or server save state made from source client.
+> - In this way, you can always use the system client as a backup or a template for new clients.
 
 ## Version Control
 

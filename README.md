@@ -42,6 +42,12 @@ mcp-serverman change <server_name> --version <version>
 mcp-serverman preset save <preset_name>
 mcp-serverman preset load <preset_name>
 mcp-serverman preset delete <preset_name>
+# Multiple client support(since 0.1.9)
+mcp-serverman client list
+mcp-serverman client add <short_name> --name "Display Name" --path "/path/to/config.json" --key "mcpServers" [--default]
+mcp-serverman client remove <short_name>
+mcp-serverman client modify <short_name> --default
+mcp-serverman client copy --from <short_name> --to <short_name> --merge
 ```
 
 For detailed usage instructions, see the [manual](Manual.md).
