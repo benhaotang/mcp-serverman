@@ -64,9 +64,9 @@ pip install -e .
 
 ## :checkered_flag:Roadmap
 
-- [x] Add support for other MCP-Clients, e.g. [Cline](https://github.com/cline/cline) and [MCP-Bridge](https://github.com/SecretiveShell/MCP-Bridge)
-- [ ] Update the code to be more modular and easier to maintain
-- [ ] Integration with other MCP server install tools, e.g. [Smithery](https://smithery.ai/)
+- [x] Add support for other MCP-Clients, e.g. [Cline](https://github.com/cline/cline) and [MCP-Bridge](https://github.com/SecretiveShell/MCP-Bridge) (since 0.1.9)
+- [ ] Update the code to be more modular and easier to maintain (so that we can move to v0.2.0 as a final step-up in version number)
+- [ ] Integration with other MCP server install tools, e.g. [Smithery](https://smithery.ai/), or with predefined installation templates (should iron out safety issues first)
 
 ## License
 

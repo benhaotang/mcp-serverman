@@ -34,7 +34,7 @@ Commands:
 mcp-serverman client init
 ```
 
-**I always recommend making a manual backup of the mcp configuration before making any changes, although I tried to cover some error handling in the code, but it is definitely not inclusive.**
+**I always recommend making a manual backup of the mcp configuration before making any changes. Although I tried to cover some error handling in the code, it is definitely not inclusive.**
 
 # Storage Structure
 
@@ -279,6 +279,36 @@ Options:
 > - This will not modify the original target client configurations for safety reasons. 
 > - You can then restore to the target client with a preset or server save state made from source client.
 > - In this way, you can always use the system client as a backup or a template for new clients.
+
+### Examples
+
+1. Initialize and add a new client:
+```bash
+# Initialize client management
+mcp-serverman client init
+
+# Add cline as a client
+mcp-serverman client add cline --name "Roo Cline" --path "/home/$(whoami)/.config/Code/User/globalStorage/rooveterinaryinc.roo-cline/settings
+" --key "content_servers"
+```
+
+2. Copy configurations between clients:
+```bash
+# Copy Claude's servers to cline
+mcp-serverman client copy --from claude --to cline
+
+# Merge configurations with newer versions
+mcp-serverman client copy --from claude --to cline --merge
+```
+
+3. Switch default client:
+```bash
+# Set cline as default client
+mcp-serverman client modify cline --default
+
+# Now commands will use cline by default
+mcp-serverman list  # Lists cline's mcp servers
+```
 
 ## Version Control
 
