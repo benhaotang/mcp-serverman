@@ -1,6 +1,7 @@
 # mcp-serverman: A MCP Server Configuration Manager
 
-[![PyPI version](https://badge.fury.io/py/mcp-serverman.svg)](https://badge.fury.io/py/mcp-serverman) ![](https://badge.mcpx.dev 'MCP')
+[![PyPI - Version](https://img.shields.io/pypi/v/mcp-serverman)]([https://badge.fury.io/py/mcp-serverman](https://pypi.org/project/mcp-serverman/)) [![PyPI - Downloads](https://img.shields.io/pypi/dw/mcp-serverman)](https://pypi.org/project/mcp-serverman/) ![](https://badge.mcpx.dev 'MCP') ![PyPI - License](https://img.shields.io/pypi/l/mcp-serverman)
+
 
 A command-line tool to manage Claude MCP servers configuration with version control and profiling.
 
@@ -67,7 +68,7 @@ pip install -e .
 - [x] Add support for other MCP-Clients, e.g. [Cline](https://github.com/cline/cline) and [MCP-Bridge](https://github.com/SecretiveShell/MCP-Bridge) (since 0.1.9)
 - [x] Update the code to be more modular and easier to maintain (since v0.2.0)
 - [ ] Integration with other MCP server install tools, e.g. [Smithery](https://smithery.ai/), or with predefined installation templates (should iron out safety issues first)
-    - [ ] Define a template format for server installation and only allow `git clone`, `npm install`, `pip install` via the template
+    - [ ] Define a template format for server installation and only allow `git clone`, `npm install`, `pip install`(virtual env first) via the template
     - [ ] Test with official servers
     - [ ] Add Smithery as one of allowed installation tools
     - [ ] Somehow to have a check update function? (help wanted)
