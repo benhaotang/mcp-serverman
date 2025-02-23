@@ -22,3 +22,5 @@ MANIFEST
 .vscode/
 .notebook/
 .ropeproject/
+*.man
+.aider*
