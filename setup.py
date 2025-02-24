@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="mcp-serverman",
-    version="0.2.1",
+    version="0.2.2",
     packages=find_packages(),
     package_data={
         'mcp_serverman': ['data/servers/*']
