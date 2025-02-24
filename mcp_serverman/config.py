@@ -267,6 +267,35 @@ class BaseConfigManager:
                 
         self._save_registry(registry)
 
+    def enable_server_noninteractive(self, server_name: str, version_number: int = None, version_hash: str = None) -> str:
+        """
+        Enable a specified server in a non-interactive way.
+        Either version_number or version_hash should be provided; if neither is provided, defaults to version 1.
+        """
+        config = self.read_config()
+        versions = self.get_server_versions(server_name)
+        if not versions:
+            raise click.ClickException(f"No versions found for server '{server_name}'")
+        
+        # Select the target version based on provided parameters
+        if version_number is not None:
+            if not 1 <= version_number <= len(versions):
+                raise click.ClickException(f"Invalid version number. Available range: 1-{len(versions)}")
+            version = versions[version_number - 1]
+        elif version_hash:
+            version = next((v for v in versions if v.hash == version_hash), None)
+            if not version:
+                raise click.ClickException(f"Version {version_hash} not found for server '{server_name}'")
+        else:
+            # Default to the first version available if none is specified
+            version = versions[0]
+
+        # Update the configuration non-interactively (auto-enable)
+        config.setdefault(self.servers_key, {})
+        config[self.servers_key][server_name] = version.config
+        self.write_config(config)
+        return f"Enabled server '{server_name}' with version {version_number if version_number is not None else version.hash}"
+
     def is_valid_preset_name(self, name: str) -> bool:
         """Check if a preset name is valid for all OS file systems."""
         # Basic file name validation that works across operating systems

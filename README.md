@@ -1,12 +1,9 @@
 # mcp-serverman: A MCP Server Configuration Manager
 
-[![PyPI - Version](https://img.shields.io/pypi/v/mcp-serverman)]([https://badge.fury.io/py/mcp-serverman](https://pypi.org/project/mcp-serverman/)) [![PyPI - Downloads](https://img.shields.io/pypi/dw/mcp-serverman)](https://pypi.org/project/mcp-serverman/) ![](https://badge.mcpx.dev 'MCP') ![PyPI - License](https://img.shields.io/pypi/l/mcp-serverman)
+[![PyPI - Version](https://img.shields.io/pypi/v/mcp-serverman)]([https://badge.fury.io/py/mcp-serverman](https://pypi.org/project/mcp-serverman/)) [![PyPI - Downloads](https://img.shields.io/pypi/dm/mcp-serverman)](https://pypi.org/project/mcp-serverman/) ![](https://badge.mcpx.dev 'MCP') ![](https://badge.mcpx.dev?type=server&features=tools 'MCP server with features') ![PyPI - License](https://img.shields.io/pypi/l/mcp-serverman)
 
 
 A command-line tool to manage Claude MCP servers configuration with version control and profiling.
-
-> [!WARNING]
-> This tool is still in development and may not be stable and subject to changes. 
 
 > [!IMPORTANT]  
 > I always recommend making a manual backup of the mcp configuration before making any changes. Although I tried to cover some error handling in the code, it is definitely not inclusive.
@@ -51,6 +48,8 @@ mcp-serverman client add <short_name> --name "Display Name" --path "/path/to/con
 mcp-serverman client remove <short_name>
 mcp-serverman client modify <short_name> --default
 mcp-serverman client copy --from <short_name> --to <short_name> --merge
+# Register companion mcp server to let Claude/LLM manage for you(since 0.2.1)
+mcp-serverman companion [--client <client>]
 ```
 
 For detailed usage instructions, see the [manual](https://github.com/benhaotang/mcp-serverman/blob/main/Manual.md).
@@ -67,13 +66,10 @@ pip install -e .
 
 - [x] Add support for other MCP-Clients, e.g. [Cline](https://github.com/cline/cline) and [MCP-Bridge](https://github.com/SecretiveShell/MCP-Bridge) (since 0.1.9)
 - [x] Update the code to be more modular and easier to maintain (since v0.2.0)
-- [ ] Integration with other MCP server install tools, e.g. [Smithery](https://smithery.ai/), or with predefined installation templates (should iron out safety issues first)
-    - [ ] Define a template format for server installation and only allow `git clone`, `npm install`, `pip install`(virtual env first) via the template
-    - [ ] Test with official servers
-    - [ ] Add Smithery as one of allowed installation tools
-    - [ ] Somehow to have a check update function? (help wanted)
+- [x] Added our own mcp-server to let Claude/LLM manage for you (since 0.2.1)
 - [ ] Better error handling tests
-- [ ] Maybe a Web UI via Flask?
+- ~~Integration with other MCP server install tools, e.g. Smithery, or with predefined installation templates (should iron out safety issues first)~~ We have so many mcp marketplaces now, just use [mcp-installer](https://github.com/anaisbetts/mcp-installer) package and instruct the model to install it for you.
+- ~~Maybe a Web UI via Flask?~~
 
 ## License
 
