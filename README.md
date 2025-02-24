@@ -1,6 +1,6 @@
 # mcp-serverman: A MCP Server Configuration Manager
 
-[![PyPI - Version](https://img.shields.io/pypi/v/mcp-serverman)]([https://badge.fury.io/py/mcp-serverman](https://pypi.org/project/mcp-serverman/)) [![PyPI - Downloads](https://img.shields.io/pypi/dm/mcp-serverman)](https://pypi.org/project/mcp-serverman/) ![](https://badge.mcpx.dev 'MCP') ![](https://badge.mcpx.dev?type=server&features=tools 'MCP server with features') ![PyPI - License](https://img.shields.io/pypi/l/mcp-serverman)
+[![PyPI - Version](https://img.shields.io/pypi/v/mcp-serverman)](https://pypi.org/project/mcp-serverman/) [![PyPI - Downloads](https://img.shields.io/pypi/dm/mcp-serverman)](https://pypi.org/project/mcp-serverman/) ![](https://badge.mcpx.dev 'MCP') ![](https://badge.mcpx.dev?type=server&features=tools 'MCP server with features') ![PyPI - License](https://img.shields.io/pypi/l/mcp-serverman)
 
 
 A command-line tool to manage Claude MCP servers configuration with version control and profiling.
