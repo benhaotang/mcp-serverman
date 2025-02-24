@@ -3,7 +3,7 @@
 [![PyPI - Version](https://img.shields.io/pypi/v/mcp-serverman)](https://pypi.org/project/mcp-serverman/) [![PyPI - Downloads](https://img.shields.io/pypi/dm/mcp-serverman)](https://pypi.org/project/mcp-serverman/) ![](https://badge.mcpx.dev 'MCP') ![](https://badge.mcpx.dev?type=server&features=tools 'MCP server with features') ![PyPI - License](https://img.shields.io/pypi/l/mcp-serverman)
 
 
-A command-line tool to manage Claude MCP servers configuration with version control and profiling.
+A command-line tool to manage Claude MCP servers configuration with version control and profiling. Now also has a companion mcp server to let llms config for you.
 
 > [!IMPORTANT]  
 > I always recommend making a manual backup of the mcp configuration before making any changes. Although I tried to cover some error handling in the code, it is definitely not inclusive.
@@ -19,7 +19,7 @@ pip install git+https://github.com/benhaotang/mcp-serverman.git
 ```
 Should be available on Windows, Linux(tested) and MacOS. If the path for a certain platform is wrong, open an issue.
 
-## :computer:Usage
+## :computer: Cli usage
 
 After installation, you can use the `mcp-serverman` command directly in terminal:
 
@@ -53,6 +53,20 @@ mcp-serverman companion [--client <client>]
 ```
 
 For detailed usage instructions, see the [manual](https://github.com/benhaotang/mcp-serverman/blob/main/Manual.md).
+
+## :robot: Install as a mcp server
+
+```
+# Install companion (since 0.2.1)
+mcp-serverman companion [--client <client>]
+```
+
+Example:
+- What mcp servers do I have?
+- Disable xxx, xxx server for me.
+
+![image](https://github.com/user-attachments/assets/e660aa11-73af-421b-9d3b-8dbf78de9a85)
+
 
 ## :wrench:Development
 
