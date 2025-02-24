@@ -2,11 +2,15 @@ from setuptools import setup, find_packages
 
 setup(
     name="mcp-serverman",
-    version="0.2.0",
+    version="0.2.1",
     packages=find_packages(),
+    package_data={
+        'mcp_serverman': ['data/servers/*']
+    },
     install_requires=[
         "click",
         "rich",
+        "mcp>=1.3.0",
     ],
     entry_points={
         "console_scripts": [

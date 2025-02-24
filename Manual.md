@@ -1,6 +1,3 @@
-> [!WARNING]
-> This tool is still in development and may not be stable and subject to changes. 
-
 > [!IMPORTANT]  
 > I always recommend making a manual backup of the mcp configuration before making any changes. Although I tried to cover some error handling in the code, it is definitely not inclusive.
 
@@ -280,9 +277,28 @@ Options:
 - `--force`: Force overwrite target configuration
 
 > [!TIP]
-> - This will not modify the original target client configurations for safety reasons. 
+> - This will not modify the original target client configurations for safety reasons.
 > - You can then restore to the target client with a preset or server save state made from source client.
 > - In this way, you can always use the system client as a backup or a template for new clients.
+
+### Register Companion MCP Server (since version 0.2.1)
+Register this package's companion MCP server that allows Claude/LLM to manage mcp-server configurations:
+```bash
+mcp-serverman companion [--client xxx]
+```
+
+The companion server provides these capabilities to Claude/LLM:
+- List all available servers and their status
+- List server versions with detailed configuration
+- Enable/disable servers
+- List and manage configuration profiles
+- Manage other clients  
+- **I deliberately left out all the addition, deletion and client configuration functions to prevent accidental data loss, these should be done with your consent in the terminal.**
+
+When registered, the companion server will be added to the specified client's configuration with:
+- Server name: mcp-serverman
+- Command: Path to the mcp executable installed with this package
+- Args: Path to the companion server script `mcp_tool_server.py`
 
 ### Examples
 

@@ -22,3 +22,4 @@ MANIFEST
 .vscode/
 .notebook/
 .ropeproject/
+*.man

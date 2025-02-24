@@ -6,6 +6,7 @@ import datetime
 import click
 from rich.console import Console
 from rich.table import Table
+from pkg_resources import resource_filename
 
 from .config import BaseConfigManager,ClaudeConfigManager
 from .client import ClientManager
@@ -370,6 +371,37 @@ def client_copy(from_client, to_client, merge, force):
         manager.copy_servers(from_client, to_client, merge, force)
     except click.ClickException as e:
         click.echo(f"Error: {str(e)}", err=True)
+
+def get_mcp_executable():
+    """Find the mcp executable installed with this package."""
+    import shutil
+    mcp_path = shutil.which('mcp')
+    if not mcp_path:
+        raise click.ClickException("Could not find mcp executable. Is mcp package installed?")
+    return mcp_path
+
+@cli.command('companion')
+@click.option('--client', help='Client to configure')
+def client_register_server(client):
+    """Register this package's companion MCP server to let Claude/LLM manage mcp-server configurations"""
+    manager = ClientManager().get_client(client)
+    try:
+        # Get the installed path of mcp_tool_server.py
+        server_path = resource_filename('mcp_serverman', 'data/servers/mcp_tool_server.py')
+        # Get the mcp executable path
+        mcp_path = get_mcp_executable()
+        
+        # Configure the server
+        config = manager.read_config()
+        config.setdefault(manager.servers_key, {})
+        config[manager.servers_key]['mcp-serverman'] = {
+            "command": mcp_path,
+            "args": ["run", server_path]
+        }
+        manager.write_config(config)
+        click.echo("MCP server registered successfully.")
+    except Exception as e:
+        click.echo(f"Error registering MCP server: {str(e)}", err=True)
 
 if __name__ == '__main__':
     cli()
